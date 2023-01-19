@@ -1,0 +1,10 @@
+function excellentGrade(params) {
+  let grade = params;
+
+  if (grade >= 5.5) {
+    console.log("Excellent");
+  } else {
+    console.log("Not excellent");
+  }
+}
+excellentGrade(5.51);
