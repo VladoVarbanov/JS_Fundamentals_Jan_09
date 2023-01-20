@@ -1,43 +1,33 @@
-function sortNumbers(params) {
-  let a = [];
-
-  if (params[0] > params[1] && params[0] > params[2]) {
-    a[0] = params[0];
-  } else if (
-    (params[0] > params[1] && params[0] < params[2]) ||
-    (params[0] > params[2] && params[0] < params[1])
-  ) {
-    a[1] = params[0];
-  } else if (params[0] < params[1] && params[0] < params[2]) {
-    a[2] = params[0];
+function sortNumbers(a, b, c) {
+  b;
+  let num = [];
+  if (a > b && a > c) {
+    num[0] = a;
+  } else if ((a > b && a < c) || (a > c && a < b)) {
+    num[1] = a;
+  } else if (a < b && a < c) {
+    num[2] = a;
   }
 
-  if (params[1] > params[2] && params[1] > params[0]) {
-    a[0] = params[1];
-  } else if (
-    (params[1] > params[2] && params[1] < params[0]) ||
-    (params[1] > params[0] && params[1] < params[2])
-  ) {
-    a[1] = params[1];
-  } else if (params[1] < params[0] && params[1] < params[2]) {
-    a[2] = params[1];
+  if (b > c && b > a) {
+    num[0] = b;
+  } else if ((b > c && b < a) || (b > a && b < c)) {
+    num[1] = b;
+  } else if (b < a && b < c) {
+    num[2] = b;
   }
 
-  if (params[2] > params[0] && params[2] > params[1]) {
-    a[0] = params[2];
-  } else if (
-    (params[2] > params[1] && params[2] < params[0]) ||
-    (params[2] > params[0] && params[2] < params[1])
-  ) {
-    a[1] = params[2];
-  } else if (params[2] < params[0] && params[2] < params[1]) {
-    a[2] = params[2];
+  if (c > a && c > b) {
+    num[0] = c;
+  } else if ((c > b && c < a) || (c > a && c < b)) {
+    num[1] = c;
+  } else if (c < a && c < b) {
+    num[2] = c;
   }
-  let b = a;
 
-  console.log(b[0]);
-  console.log(b[1]);
-  console.log(b[2]);
+  console.log(num[0]);
+  console.log(num[1]);
+  console.log(num[2]);
 }
-sortNumbers([2, 1, 3]);
-sortNumbers([-2, 1, 3]);
+sortNumbers(2, 1, 3);
+sortNumbers(-2, 1, 3);
