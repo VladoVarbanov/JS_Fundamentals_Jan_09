@@ -38,7 +38,6 @@ function tseamAccount(array) {
           );
         }
         break;
-
       default:
         break;
     }
