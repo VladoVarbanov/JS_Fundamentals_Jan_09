@@ -22,7 +22,7 @@ function race(data) {
     }
   }
   let sortArr = Object.entries(participants).sort((a, b) => b[1] - a[1]);
-  console.table(sortArr);
+  //   console.table(sortArr);
   console.log(`1st place: ${sortArr[0][0]}`);
   console.log(`2nd place: ${sortArr[1][0]}`);
   console.log(`3rd place: ${sortArr[2][0]}`);
