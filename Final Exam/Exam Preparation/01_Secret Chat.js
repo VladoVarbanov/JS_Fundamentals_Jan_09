@@ -27,7 +27,7 @@ function secretChat(arr) {
         }
         break;
       case "InsertSpace":
-        let index = value[0];
+        let index = Number(value[0]);
         let leftSide = secretMassage.substring(0, index);
         let rightSide = secretMassage.substring(index);
         secretMassage = leftSide + " " + rightSide;
