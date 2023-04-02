@@ -11,7 +11,7 @@ function softUniBarIncome(data) {
     if (pattern.test(line)) {
       match = line.match(pattern);
       let sum = Number(match.groups["count"]) * Number(match.groups["price"]);
-      //   debugger;
+      debugger;
       console.log(
         `${match.groups.name}: ${match.groups.product} - ${sum.toFixed(2)}`
       );
