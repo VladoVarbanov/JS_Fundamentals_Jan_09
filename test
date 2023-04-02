@@ -1,5 +1,70 @@
-let a = 5;
-let b = a++;
-let c = ++a;
-
-console.log(c);
+function hero(input) {
+  let line = input.shift();
+  let result = {};
+  while (line !== "End") {
+    let commands = line.split(" ");
+    let [command, params1, params2] = commands;
+    if (command === "Enroll") {
+      if (!result[params1]) {
+        result[params1] = [];
+      } else {
+        console.log(`${params1} is already enrolled.`);
+      }
+    } else if (command === "Learn") {
+      let heroName = params1;
+      let spellName = params2;
+      if (!result[heroName]) {
+        console.log(`${heroName} doesn't exist.`);
+        line = input.shift();
+        continue;
+      }
+      if (result[heroName]["spellBook"]) {
+        console.log(`${heroName} has already learnt ${spellName}.`);
+      } else {
+        result[heroName]["spellBook"] = spellName;
+      }
+    } else if (command === "Unlearn") {
+      let heroName = params1;
+      let spellName = params2;
+      if (!result[heroName]) {
+        console.log(`${heroName} doesn't exist.`);
+        line = input.shift();
+        continue;
+      }
+      if (result[heroName]["spellBook"]) {
+        if (result[heroName]["spellBook"] !== spellName) {
+          console.log(`${heroName} doesn't know ${spellName}.`);
+        } else {
+          delete result[heroName]["spellBook"];
+        }
+      }
+    }
+    line = input.shift();
+  }
+  console.log("Heroes:");
+  for (const key in result) {
+    if (result[key].spellBook) {
+      console.log(`== ${key}: ${result[key]["spellBook"]}`);
+    } else {
+      console.log(`== ${key}:`);
+    }
+  }
+}
+hero([
+  "Enroll Stefan",
+  "Enroll Peter",
+  "Enroll Stefan",
+  "Learn Stefan ItShouldWork",
+  "Learn John ItShouldNotWork",
+  "Unlearn George Dispel",
+  "Unlearn Stefan ItShouldWork",
+  "End",
+]);
+console.log("++++++++++++++++++++");
+hero([
+  "Enroll Stefan",
+  "Learn Stefan ItShouldWork",
+  "Learn Stefan ItShouldWork",
+  "Unlearn Stefan NotFound",
+  "End",
+]);
